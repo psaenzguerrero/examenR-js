@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="buscador" type="text" placeholder="Buscar...">
+    <ul id="filterList">
+        <li>Manzana</li>
+        <li>Plátano</li>
+        <li>Cereza</li>
+        <li>Zanahoria</li>
+    </ul>
+
+    <script>
+        const input = document.querySelector("input");
+        const todo = document.querySelectorAll("li");
+        const li = document.querySelector("li");
+
+        document.addEventListener("DOMContentLoaded",()=>{
+            let escrito
+            input.addEventListener("input",(e)=>{
+                escrito = e.target.value;
+                todo.forEach(elemento =>{
+                    if (!elemento.textContent.toLowerCase().trim().includes(escrito)) {
+                        elemento.style.display="none";                      
+                    }else{
+                        elemento.style.display="block";
+                    }
+                })
+                
+            })
+        })
+    </script>
+</body>
+</html>
